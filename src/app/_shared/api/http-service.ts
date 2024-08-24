@@ -1,6 +1,6 @@
-import { API_URL } from "@/shared/utils";
+import { API_URL } from "../utils";
 
-import { ApiError } from "@/shared/types";
+import { ApiError } from "../types";
 import axios, {
     AxiosRequestConfig,
     AxiosRequestHeaders,

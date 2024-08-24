@@ -6,7 +6,7 @@ import {
     UnauthorizedError,
     UnhandledException,
     ValidationError,
-} from "@/shared/types";
+} from "../types";
 
 export type ApiErrorHandler = (errorData: ApiError) => void;
 
