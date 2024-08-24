@@ -1,26 +1,37 @@
 {
-  "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+    "compilerOptions": {
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "preserve",
+        "incremental": true,
+        "plugins": [
+            {
+                "name": "next"
+            }
+        ],
+        "paths": {
+            "@/app": ["./src/app/(app)"],
+            "@/pages/*": ["./src/app/(pages)/*"],
+            "@/widgets/*": ["./src/app/(widgets)/*"],
+            "@/features/*": ["./src/app/(features)/*"],
+            "@/entities": ["./src/app/(entities)"],
+            "@/shared/lib": ["./src/app/(shared)/lib"],
+            "@/shared/api": ["./src/app/(shared)/api"],
+            "@/shared/ui": ["./src/app/(shared)/ui"],
+            "@/shared/utils": ["./src/app/(shared)/utils"],
+            "@/shared/types": ["./src/app/(shared)/types"],
+            "@/shared/atoms": ["./src/app/(shared)/atoms"],
+            "@/shared/hooks": ["./src/app/(shared)/lib/hooks"]
+        }
+    },
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+    "exclude": ["node_modules"]
 }
