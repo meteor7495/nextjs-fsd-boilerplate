@@ -1,95 +1,95 @@
-import { API_URL } from "../utils";
+import { API_URL } from '../utils';
 
-import { ApiError } from "../types";
+import { ApiError } from '../types';
 import axios, {
-    AxiosRequestConfig,
-    AxiosRequestHeaders,
-    AxiosResponse,
-} from "axios";
-import { errorHandler, networkErrorStrategy } from "./http-error-strategies";
+  AxiosRequestConfig,
+  AxiosRequestHeaders,
+  AxiosResponse,
+} from 'axios';
+import { errorHandler, networkErrorStrategy } from './http-error-strategies';
 
 const httpService = axios.create({
-    baseURL: API_URL,
-    headers: {
-        "Content-Type": "application/json",
-    },
+  baseURL: API_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 httpService.interceptors.response.use(
-    (response) => {
-        return response;
-    },
-    (error) => {
-        if (error?.response) {
-            const statusCode = error?.response?.status;
-            if (statusCode >= 400) {
-                const errorData: ApiError = error.response?.data;
+  (response) => {
+    return response;
+  },
+  (error) => {
+    if (error?.response) {
+      const statusCode = error?.response?.status;
+      if (statusCode >= 400) {
+        const errorData: ApiError = error.response?.data;
 
-                errorHandler[statusCode](errorData);
-            }
-        } else {
-            networkErrorStrategy();
-        }
+        errorHandler[statusCode](errorData);
+      }
+    } else {
+      networkErrorStrategy();
     }
+  },
 );
 
 async function apiBase<T>(
-    url: string,
-    options?: AxiosRequestConfig
+  url: string,
+  options?: AxiosRequestConfig,
 ): Promise<T> {
-    const response: AxiosResponse = await httpService(url, options);
-    return response.data as T;
+  const response: AxiosResponse = await httpService(url, options);
+  return response.data as T;
 }
 
 async function readData<T>(
-    url: string,
-    headers?: AxiosRequestHeaders
+  url: string,
+  headers?: AxiosRequestHeaders,
 ): Promise<T> {
-    const options: AxiosRequestConfig = {
-        headers: headers,
-        method: "GET",
-    };
-    return await apiBase<T>(url, options);
+  const options: AxiosRequestConfig = {
+    headers: headers,
+    method: 'GET',
+  };
+  return await apiBase<T>(url, options);
 }
 
 async function createData<TModel, TResult>(
-    url: string,
-    data: TModel,
-    headers?: AxiosRequestHeaders
+  url: string,
+  data: TModel,
+  headers?: AxiosRequestHeaders,
 ): Promise<TResult> {
-    const options: AxiosRequestConfig = {
-        method: "POST",
-        headers: headers,
-        data: JSON.stringify(data),
-    };
+  const options: AxiosRequestConfig = {
+    method: 'POST',
+    headers: headers,
+    data: JSON.stringify(data),
+  };
 
-    return await apiBase<TResult>(url, options);
+  return await apiBase<TResult>(url, options);
 }
 
 async function updateData<TModel, TResult>(
-    url: string,
-    data: TModel,
-    headers?: AxiosRequestHeaders
+  url: string,
+  data: TModel,
+  headers?: AxiosRequestHeaders,
 ): Promise<TResult> {
-    const options: AxiosRequestConfig = {
-        method: "PUT",
-        headers: headers,
-        data: JSON.stringify(data),
-    };
+  const options: AxiosRequestConfig = {
+    method: 'PUT',
+    headers: headers,
+    data: JSON.stringify(data),
+  };
 
-    return await apiBase<TResult>(url, options);
+  return await apiBase<TResult>(url, options);
 }
 
 async function deleteData(
-    url: string,
-    headers?: AxiosRequestHeaders
+  url: string,
+  headers?: AxiosRequestHeaders,
 ): Promise<void> {
-    const options: AxiosRequestConfig = {
-        method: "DELETE",
-        headers: headers,
-    };
+  const options: AxiosRequestConfig = {
+    method: 'DELETE',
+    headers: headers,
+  };
 
-    return await apiBase(url, options);
+  return await apiBase(url, options);
 }
 
 export { createData, readData, updateData, deleteData };

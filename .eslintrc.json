@@ -2,25 +2,11 @@
   "extends": [
     "next/core-web-vitals",
     "plugin:storybook/recommended",
-    "mantine",
     "plugin:@next/next/recommended",
-    "plugin:jest/recommended",
     "prettier"
   ],
   "plugins": ["prettier"],
-  "overrides": [
-    {
-      "files": ["**/?(*.)+(spec|test).[jt]s?(x)"],
-      "extends": ["plugin:testing-library/react"]
-    }
-  ],
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  },
   "rules": {
-    "prettier/prettier": "error",
-    "react/react-in-jsx-scope": "off",
-    "import/extensions": "off",
     "semi": ["error", "always"],
     "quotes": ["error", "single"],
     "no-console": "warn",

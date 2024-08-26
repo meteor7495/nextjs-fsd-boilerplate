@@ -1,2 +1,2 @@
-export * from "./http-error-strategies";
-export * from "./http-service";
+export * from './http-error-strategies';
+export * from './http-service';
