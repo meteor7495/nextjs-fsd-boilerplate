@@ -10,6 +10,7 @@
     "semi": ["error", "always"],
     "quotes": ["error", "single"],
     "no-console": "warn",
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "react/display-name": false
   }
 }

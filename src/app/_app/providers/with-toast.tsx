@@ -2,12 +2,15 @@
 
 import { ToastContainer } from 'react-toastify';
 import { ReactNode } from 'react';
-
 import 'react-toastify/dist/ReactToastify.css';
 
-export const withToast = (component: () => ReactNode) => (
+interface IProps {
+  children: React.ReactNode;
+}
+
+export const ToastProvider = ({ children }: IProps) => (
   <>
     <ToastContainer />
-    {component()}
+    {children}
   </>
 );

@@ -1,3 +1,3 @@
-import { withProviders } from './providers';
+import { Providers } from './providers';
 
-export { withProviders as AppProviders };
+export { Providers };
