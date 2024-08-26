@@ -11,6 +11,6 @@
     "quotes": ["error", "single"],
     "no-console": "warn",
     "no-unused-vars": "warn",
-    "react/display-name": false
+    "react/display-name": [0, { "ignoreTranspilerName": false }]
   }
 }
