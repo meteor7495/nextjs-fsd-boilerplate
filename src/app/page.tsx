@@ -1,10 +1,18 @@
-import Image from 'next/image';
-import { Button } from './_shared';
+import { Button } from './shared';
 
-export default function Home() {
+// Next.js will invalidate the cache when a
+// request comes in, at most once every 60 seconds.
+
+export default async function Home() {
+  let data = await fetch('http://localhost:3000/api/test', {
+    next: { revalidate: 10 },
+  });
+  let posts = await data.json();
   return (
     <div>
-      <Button>Click Me!</Button>
+      <Button>
+        <>{posts.message}</>
+      </Button>
     </div>
   );
 }

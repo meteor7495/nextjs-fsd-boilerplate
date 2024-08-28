@@ -18,18 +18,18 @@
             }
         ],
         "paths": {
-            "@/app": ["./src/app/_app"],
-            "@/pages/*": ["./src/app/(pages)/*"],
-            "@/widgets/*": ["./src/app/_widgets/*"],
-            "@/features/*": ["./src/app/_features/*"],
-            "@/entities": ["./src/app/_entities"],
-            "@/shared/lib": ["./src/app/_shared/lib"],
-            "@/shared/api": ["./src/app/_shared/api"],
-            "@/shared/ui": ["./src/app/_shared/ui"],
-            "@/shared/utils": ["./src/app/_shared/utils"],
-            "@/shared/types": ["./src/app/_shared/types"],
-            "@/shared/atoms": ["./src/app/_shared/atoms"],
-            "@/shared/hooks": ["./src/app/_shared/lib/hooks"]
+            "@app": ["./src/app/_app"],
+            "@pages/*": ["./src/app/(pages)/*"],
+            "@widgets/*": ["./src/app/widgets/*"],
+            "@features/*": ["./src/app/features/*"],
+            "@entities": ["./src/app/entities"],
+            "@shared/lib": ["./src/app/shared/lib"],
+            "@shared/api": ["./src/app/shared/api"],
+            "@shared/ui": ["./src/app/shared/ui"],
+            "@shared/utils": ["./src/app/shared/utils"],
+            "@shared/types": ["./src/app/shared/types"],
+            "@shared/atoms": ["./src/app/shared/atoms"],
+            "@shared/hooks": ["./src/app/shared/lib/hooks"]
         }
     },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
