@@ -1,9 +1,6 @@
 import { Button as MantineButton } from '@mantine/core';
-
-interface IProps {
-  children: React.ReactNode;
-}
+import { IProps } from './button.types';
 
 export const Button = ({ children }: IProps) => {
-  return <MantineButton>{children}</MantineButton>;
+    return <MantineButton>{children}</MantineButton>;
 };
