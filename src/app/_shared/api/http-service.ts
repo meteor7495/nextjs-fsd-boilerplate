@@ -15,7 +15,7 @@ function addSubscriber(callback: (token: string) => void): void {
 }
 
 async function refreshToken(): Promise<string> {
-    const res = await fetch(`/api/auth/refresh-token`, {
+    const res = await fetch('/api/auth/refresh-token', {
         method: 'POST',
         body: JSON.stringify({ token: currentToken }),
         headers: { 'Content-Type': 'application/json' },
