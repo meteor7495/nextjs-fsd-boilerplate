@@ -1,18 +1,23 @@
-import { Button } from './shared';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@shared/lib'; // Your NextAuth options
+import Link from 'next/link';
 
-// Next.js will invalidate the cache when a
-// request comes in, at most once every 60 seconds.
+export default async function Dashboard() {
+    const session = await getServerSession(authOptions);
 
-export default async function Home() {
-  let data = await fetch('http://localhost:3000/api/test', {
-    next: { revalidate: 10 },
-  });
-  let posts = await data.json();
-  return (
-    <div>
-      <Button>
-        <>{posts.message}</>
-      </Button>
-    </div>
-  );
+    if (!session) {
+        return (
+            <>
+                <div>You need to sign in</div>
+                <Link href={'/auth/signin'}>Login</Link>
+            </>
+        );
+    }
+
+    return (
+        <div>
+            Welcome, {session.user?.name}! <br />
+            Your email: {session.user?.email}
+        </div>
+    );
 }
