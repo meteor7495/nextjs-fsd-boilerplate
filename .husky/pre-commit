@@ -4,5 +4,8 @@
 echo "Running type check..."
 npm run type-check
 
+echo "Running pretty..."
+npm run pretty
+
 echo "Running lint..."
 npm run lint
